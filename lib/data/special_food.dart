@@ -67,7 +67,7 @@ var specialFoodList = [
       location: "Kebumen",
       description:
           "Emping Mendem ini memiliki bentuk yang lebih kecil dan juga memiliki tekstur yang lebih padat. Hal inilah yang menjadikan emping mendem berbeda dari jenis emping melinjo pada umumnya. Kendati demikian, bahan yang digunakan untuk membuat emping mendem sama yaitu melinjo. Teksturnya yang renya dan rasanya yang khas membuat penggemar emping selalu memburunya. Saat ini, emping mendem sendiri sudah hadir dalam berbagai variasi rasa. Mulai dari rasa original, gurih, keju, pedas manis, balado, dan rasa lainnya. Emping mendem bisa tahan lama sehingga sangat cocok dijadikan sebagai oleh-oleh.",
-      image: "images/food/emping_mendem.png"),
+      image: "images/food/emping_mendem.jpg"),
 
   // 8. Kethek
   SpecialFood(

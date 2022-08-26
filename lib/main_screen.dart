@@ -11,20 +11,12 @@ import 'package:final_submission_flutter_pemula/food_list_screen.dart';
 import 'package:final_submission_flutter_pemula/food_detail_screen.dart';
 import 'package:final_submission_flutter_pemula/data/tourism_place.dart';
 
-// var robotoFont = const TextStyle(fontFamily: "Roboto");
-
-class MainScreen extends StatefulWidget {
+class MainScreen extends StatelessWidget {
   const MainScreen({Key? key}) : super(key: key);
 
   @override
-  _MainScreenState createState() => _MainScreenState();
-}
-
-class _MainScreenState extends State<MainScreen> {
-  final _scrollController = ScrollController();
-
-  @override
   Widget build(BuildContext context) {
+    final TourismPlace place;
     return Scaffold(
       appBar: AppBar(
         title: Text("Explore Kebumen",
@@ -66,22 +58,7 @@ class _MainScreenState extends State<MainScreen> {
               ),
             ),
           ),
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: TextField(
-              decoration: InputDecoration(
-                focusColor: Colors.green,
-                suffixIcon: Icon(Icons.search),
-                hintText: "Cari tempat atau makanan di sini ...",
-                border: OutlineInputBorder(
-                  borderRadius: BorderRadius.circular(100),
-                ),
-              ),
-              onChanged: (value) {
-                setState(() {});
-              },
-            ),
-          ),
+          Search(),
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
@@ -220,102 +197,15 @@ class _MainScreenState extends State<MainScreen> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                  "images/place/Pantai Menganti/main.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Pantai Menganti",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
+                recommendationCard(
+                  "images/place/Pantai Menganti/main.jpg",
+                  "Pantai Menganti",
                 ),
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                  "images/place/Benteng Van der Wijck/main.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Benteng Van der Wijck",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  // margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage(
-                                  "images/place/Bukit Pentulu Indah/main.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Bukit Pentulu Indah",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                recommendationCard(
+                    "images/place/Benteng Van der Wijck/main.jpg",
+                    "Benteng Van der Wijck"),
+                recommendationCard("images/place/Bukit Pentulu Indah/main.jpg",
+                    "Bukit Pentulu Indah"),
               ],
             ),
           ),
@@ -335,100 +225,12 @@ class _MainScreenState extends State<MainScreen> {
             child: ListView(
               scrollDirection: Axis.horizontal,
               children: [
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage("images/food/sate_ambal.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Sate Ayam Ambal",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image:
-                                  AssetImage("images/food/nasi_penggel.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Nasi Penggel",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  // margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage("images/food/soto_tmw.jpg"))),
-                      child: Padding(
-                        padding: const EdgeInsets.all(20),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              "Soto Tamanwinangun",
-                              style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  fontFamily: "Roboto"),
-                            )
-                          ],
-                        ),
-                      ),
-                    ),
-                  ),
-                )
+                recommendationCard(
+                    "images/food/sate_ambal.jpg", "Sate Ayam Ambal"),
+                recommendationCard(
+                    "images/food/nasi_penggel.jpg", "Nasi Penggel"),
+                recommendationCard(
+                    "images/food/soto_tmw.jpg", "Soto Tamanwinangun"),
               ],
             ),
           )
@@ -437,9 +239,76 @@ class _MainScreenState extends State<MainScreen> {
     );
   }
 
+  Card recommendationCard(String imagePath, String recommendationName) {
+    return Card(
+      margin: EdgeInsets.only(right: 20),
+      elevation: 0,
+      child: ClipRRect(
+        borderRadius: BorderRadius.circular(20),
+        child: Container(
+          width: 200,
+          height: 300,
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              fit: BoxFit.cover,
+              image: AssetImage(imagePath),
+            ),
+          ),
+          child: Material(
+            color: Colors.transparent,
+            child: InkWell(
+              onTap: () {},
+              child: Padding(
+                padding: EdgeInsets.all(20),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      recommendationName,
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        fontFamily: "Roboto",
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class Search extends StatefulWidget {
+  const Search({Key? key}) : super(key: key);
+
   @override
-  void dispose() {
-    _scrollController.dispose();
-    super.dispose();
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.only(bottom: 20),
+      child: TextField(
+        decoration: InputDecoration(
+          focusColor: Colors.green,
+          suffixIcon: Icon(Icons.search),
+          hintText: "Cari tempat atau makanan di sini ...",
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(100),
+          ),
+        ),
+        onChanged: (value) {
+          setState(() {});
+        },
+      ),
+    );
   }
 }

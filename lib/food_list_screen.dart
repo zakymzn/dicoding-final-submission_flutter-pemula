@@ -1,3 +1,4 @@
+import 'package:final_submission_flutter_pemula/food_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/data/special_food.dart';
 
@@ -43,7 +44,12 @@ class FoodListScreen extends StatelessWidget {
                 child: Material(
                   color: Colors.transparent,
                   child: InkWell(
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) {
+                        return FoodDetailScreen(food: food);
+                      }));
+                    },
                     child: Padding(
                       padding: const EdgeInsets.all(20),
                       child: Text(

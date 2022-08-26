@@ -1,4 +1,3 @@
-import 'package:final_submission_flutter_pemula/data/tourism_place.dart';
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/data/tourism_place.dart';
 
@@ -29,31 +28,59 @@ class PlaceDetailScreen extends StatelessWidget {
       body: ListView(
         children: [
           Container(
+            height: 200,
             margin: EdgeInsets.all(20),
             decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
                 image: AssetImage(place.mainImage),
                 fit: BoxFit.cover,
               ),
             ),
           ),
-          //     ListView.builder(
-          //       itemCount: tourismPlaceList.length,
-          //       itemBuilder: (BuildContext context, int index) {
-          //         final TourismPlace place = tourismPlaceList[index];
-          //         return ClipRRect(
-          //           borderRadius: BorderRadius.circular(10),
-          //           child: Container(
-          //             height: 100,
-          //             decoration: BoxDecoration(
-          //               image: DecorationImage(
-          //                 image: AssetImage(place.imageList[index]),
-          //               ),
-          //             ),
-          //           ),
-          //         );
-          //       },
-          //     ),
+          SizedBox(
+            height: 100,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              padding: EdgeInsets.only(left: 20),
+              children: place.imageList.map((path) {
+                return Container(
+                  height: 100,
+                  width: 150,
+                  margin: EdgeInsets.only(right: 20),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    image: DecorationImage(
+                      image: AssetImage(path),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+            child: Text(
+              "Lokasi : " + place.location,
+              style: TextStyle(
+                fontSize: 16,
+                fontWeight: FontWeight.bold,
+                fontFamily: "Roboto",
+              ),
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.all(20),
+            child: Text(
+              place.description,
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                fontSize: 16,
+                fontFamily: "Roboto",
+              ),
+            ),
+          )
         ],
       ),
     );
