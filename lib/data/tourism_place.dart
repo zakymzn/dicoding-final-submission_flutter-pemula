@@ -44,7 +44,7 @@ var tourismPlaceList = [
         "images/place/Bukit Pentulu Indah/4.jpg",
       ]),
 
-  // 3. Pantai Mengantiw
+  // 3. Pantai Menganti
   TourismPlace(
       name: "Pantai Menganti",
       description:

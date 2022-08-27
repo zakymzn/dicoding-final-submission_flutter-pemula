@@ -26,24 +26,30 @@ class HistoryScreen extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
         ),
+        backgroundColor: Color(0xff189AB4),
+        elevation: 2,
       ),
-      body: ListView(
-        padding: EdgeInsets.all(20),
-        children: [
-          Container(
-            margin: EdgeInsets.only(bottom: 20),
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Image(
-                image: AssetImage("images/tugulawet.jpg"),
+      body: Container(
+        color: Color(0xffD4F1F4),
+        child: ListView(
+          padding: EdgeInsets.all(20),
+          children: [
+            Container(
+              margin: EdgeInsets.only(bottom: 20),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image(
+                  image: AssetImage("images/tugulawet.jpg"),
+                ),
               ),
             ),
-          ),
-          Text(
-            history,
-            style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
-          ),
-        ],
+            Text(
+              history,
+              textAlign: TextAlign.justify,
+              style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
+            ),
+          ],
+        ),
       ),
     );
   }

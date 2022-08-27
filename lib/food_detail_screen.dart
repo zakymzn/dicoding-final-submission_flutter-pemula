@@ -26,40 +26,46 @@ class FoodDetailScreen extends StatelessWidget {
           ),
         ),
         actions: [ThumbButton()],
+        backgroundColor: Color(0xff189AB4),
+        elevation: 2,
       ),
-      body: ListView(
-        children: [
-          Container(
-            height: 200,
-            margin: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: AssetImage(food.image),
-                fit: BoxFit.cover,
+      body: Container(
+        color: Color(0xffD4F1F4),
+        child: ListView(
+          children: [
+            Container(
+              height: 200,
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(food.image),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
-            child: Text(
-              "Lokasi : " + food.location,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Roboto",
+            Padding(
+              padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
+              child: Text(
+                "Lokasi : " + food.location,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Roboto",
+                  color: Color(0xff05445E),
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Text(
-              food.description,
-              textAlign: TextAlign.justify,
-              style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
-            ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                food.description,
+                textAlign: TextAlign.justify,
+                style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

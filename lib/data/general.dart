@@ -1,10 +1,65 @@
-// Profile
+import 'package:flutter/cupertino.dart';
+import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';
+
 String name = "Ma'mur Zaky Nurrokhman";
 String email = "mamurzakynurrokhman@gmail.com";
+
 String facebook = "Ma'mur Zaky Nurrokhman";
+String facebookURL = "https://www.facebook.com/mamur.nurrokhman/";
+IconData facebookIcon = MdiIcons.facebook;
+
 String instagram = "@zaky_nurrokhman";
+String instagramURL = "https://www.instagram.com/zaky_nurrokhman/";
+IconData instagramIcon = MdiIcons.instagram;
+
 String linkedin = "Ma'mur Zaky Nurrokhman";
+String linkedinURL = "https://www.linkedin.com/in/zakymzn/";
+IconData linkedinIcon = MdiIcons.linkedin;
+
 String github = "zakymzn";
+String githubURL = "https://github.com/zakymzn";
+IconData githubIcon = MdiIcons.github;
+
+class SocialMedia {
+  String socialMediaPlatform;
+  String socialMediaName;
+  String socialMediaURL;
+  IconData icon;
+
+  SocialMedia({
+    required this.socialMediaPlatform,
+    required this.socialMediaName,
+    required this.socialMediaURL,
+    required this.icon,
+  });
+}
+
+var socialMediaList = [
+  SocialMedia(
+    socialMediaPlatform: "Facebook",
+    socialMediaName: "Ma'mur Zaky Nurrokhman",
+    socialMediaURL: "https://www.facebook.com/mamur.nurrokhman/",
+    icon: MdiIcons.facebook,
+  ),
+  SocialMedia(
+    socialMediaPlatform: "Instagram",
+    socialMediaName: "@zakymzn",
+    socialMediaURL: "https://www.instagram.com/zaky_nurrokhman/",
+    icon: MdiIcons.instagram,
+  ),
+  SocialMedia(
+    socialMediaPlatform: "LinkedIn",
+    socialMediaName: "Ma'mur Zaky Nurrokhman",
+    socialMediaURL: "https://www.linkedin.com/in/zakymzn/",
+    icon: MdiIcons.linkedin,
+  ),
+  SocialMedia(
+    socialMediaPlatform: "Github",
+    socialMediaName: "zakymzn",
+    socialMediaURL: "https://github.com/zakymzn",
+    icon: MdiIcons.github,
+  ),
+];
 
 // History
 String history =

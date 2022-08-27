@@ -24,64 +24,70 @@ class PlaceDetailScreen extends StatelessWidget {
           ),
         ),
         actions: [ThumbButton()],
+        backgroundColor: Color(0xff189AB4),
+        elevation: 2,
       ),
-      body: ListView(
-        children: [
-          Container(
-            height: 200,
-            margin: EdgeInsets.all(20),
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-              image: DecorationImage(
-                image: AssetImage(place.mainImage),
-                fit: BoxFit.cover,
+      body: Container(
+        color: Color(0xffD4F1F4),
+        child: ListView(
+          children: [
+            Container(
+              height: 200,
+              margin: EdgeInsets.all(20),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(20),
+                image: DecorationImage(
+                  image: AssetImage(place.mainImage),
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
-          ),
-          SizedBox(
-            height: 100,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
-              children: place.imageList.map((path) {
-                return Container(
-                  height: 100,
-                  width: 150,
-                  margin: EdgeInsets.only(right: 20),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10),
-                    image: DecorationImage(
-                      image: AssetImage(path),
-                      fit: BoxFit.cover,
+            SizedBox(
+              height: 100,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.only(left: 20),
+                children: place.imageList.map((path) {
+                  return Container(
+                    height: 100,
+                    width: 150,
+                    margin: EdgeInsets.only(right: 20),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      image: DecorationImage(
+                        image: AssetImage(path),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                  ),
-                );
-              }).toList(),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
-            child: Text(
-              "Lokasi : " + place.location,
-              style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-                fontFamily: "Roboto",
+                  );
+                }).toList(),
               ),
             ),
-          ),
-          Padding(
-            padding: EdgeInsets.all(20),
-            child: Text(
-              place.description,
-              textAlign: TextAlign.justify,
-              style: TextStyle(
-                fontSize: 16,
-                fontFamily: "Roboto",
+            Padding(
+              padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
+              child: Text(
+                "Lokasi : " + place.location,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold,
+                  fontFamily: "Roboto",
+                  color: Color(0xff05445E),
+                ),
               ),
             ),
-          )
-        ],
+            Padding(
+              padding: EdgeInsets.all(20),
+              child: Text(
+                place.description,
+                textAlign: TextAlign.justify,
+                style: TextStyle(
+                  fontSize: 16,
+                  fontFamily: "Roboto",
+                ),
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

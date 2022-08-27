@@ -1,5 +1,5 @@
-import 'package:final_submission_flutter_pemula/food_detail_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:final_submission_flutter_pemula/food_detail_screen.dart';
 import 'package:final_submission_flutter_pemula/data/special_food.dart';
 
 class FoodListScreen extends StatelessWidget {
@@ -23,51 +23,63 @@ class FoodListScreen extends StatelessWidget {
             fontFamily: "Roboto",
           ),
         ),
+        backgroundColor: Color(0xff189AB4),
+        elevation: 2,
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.all(10),
-        itemCount: specialFoodList.length,
-        itemBuilder: (BuildContext context, int index) {
-          final SpecialFood food = specialFoodList[index];
-          return Card(
-            elevation: 0,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(20),
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(food.image),
+      body: Container(
+        color: Color(0xffD4F1F4),
+        child: ListView.builder(
+          padding: EdgeInsets.all(10),
+          itemCount: specialFoodList.length,
+          itemBuilder: (BuildContext context, int index) {
+            final SpecialFood food = specialFoodList[index];
+            return Card(
+              elevation: 0,
+              color: Colors.transparent,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      fit: BoxFit.cover,
+                      image: AssetImage(food.image),
+                    ),
                   ),
-                ),
-                child: Material(
-                  color: Colors.transparent,
-                  child: InkWell(
-                    onTap: () {
-                      Navigator.push(context,
-                          MaterialPageRoute(builder: (context) {
-                        return FoodDetailScreen(food: food);
-                      }));
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.all(20),
-                      child: Text(
-                        food.name,
-                        style: TextStyle(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: "Roboto",
-                          color: Colors.white,
+                  child: Material(
+                    color: Colors.transparent,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) {
+                          return FoodDetailScreen(food: food);
+                        }));
+                      },
+                      child: Padding(
+                        padding: const EdgeInsets.all(20),
+                        child: Text(
+                          food.name,
+                          style: TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: "Roboto",
+                              color: Colors.white,
+                              shadows: [
+                                Shadow(
+                                  color: Colors.black,
+                                  blurRadius: 10.0,
+                                  offset: Offset(0, 3),
+                                ),
+                              ]),
                         ),
                       ),
                     ),
                   ),
                 ),
               ),
-            ),
-          );
-        },
+            );
+          },
+        ),
       ),
     );
   }
