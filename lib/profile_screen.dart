@@ -1,5 +1,3 @@
-import 'dart:ffi';
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/data/general.dart';
 import 'package:material_design_icons_flutter/material_design_icons_flutter.dart';

@@ -66,7 +66,7 @@ class PlaceDetailScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
               child: Text(
-                "Lokasi : " + place.location,
+                "Lokasi : ${place.location}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

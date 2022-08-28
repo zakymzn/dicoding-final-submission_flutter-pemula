@@ -1,4 +1,3 @@
-import 'package:final_submission_flutter_pemula/data/tourism_place.dart';
 import 'package:final_submission_flutter_pemula/place_detail_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/data/special_food.dart';
@@ -47,7 +46,7 @@ class FoodDetailScreen extends StatelessWidget {
             Padding(
               padding: EdgeInsets.fromLTRB(20, 0, 20, 0),
               child: Text(
-                "Lokasi : " + food.location,
+                "Lokasi : ${food.location}",
                 style: TextStyle(
                   fontSize: 16,
                   fontWeight: FontWeight.bold,

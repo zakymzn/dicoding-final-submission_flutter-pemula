@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:final_submission_flutter_pemula/search_screen.dart';
 import 'package:final_submission_flutter_pemula/profile_screen.dart';
 import 'package:final_submission_flutter_pemula/history_screen.dart';
 import 'package:final_submission_flutter_pemula/place_list_screen.dart';
@@ -23,6 +24,19 @@ class MainScreen extends StatelessWidget {
               fontFamily: "Roboto",
             )),
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(
+                builder: (context) {
+                  return SearchScreen();
+                },
+              ));
+            },
+            icon: Icon(
+              Icons.search,
+              color: Color(0xff05445E),
+            ),
+          ),
           IconButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
@@ -58,10 +72,10 @@ class MainScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              child: Search(),
-            ),
+            // Padding(
+            //   padding: const EdgeInsets.symmetric(horizontal: 20),
+            //   child: Search(),
+            // ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: Row(
@@ -346,35 +360,6 @@ class MainScreen extends StatelessWidget {
             )
           ],
         ),
-      ),
-    );
-  }
-}
-
-class Search extends StatefulWidget {
-  const Search({Key? key}) : super(key: key);
-
-  @override
-  State<Search> createState() => _SearchState();
-}
-
-class _SearchState extends State<Search> {
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: EdgeInsets.only(bottom: 20),
-      child: TextField(
-        decoration: InputDecoration(
-          focusColor: Colors.green,
-          suffixIcon: Icon(Icons.search),
-          hintText: "Cari tempat atau makanan di sini ...",
-          border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(100),
-          ),
-        ),
-        onChanged: (value) {
-          setState(() {});
-        },
       ),
     );
   }
