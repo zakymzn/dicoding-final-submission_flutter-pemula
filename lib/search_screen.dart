@@ -94,13 +94,11 @@ class _SearchScreenState extends State<SearchScreen> {
                                   color: Colors.white),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      PlaceDetailScreen(place: place),
-                                ),
-                              );
+                              Navigator.of(context).push(_createSlideTransition(
+                                  PlaceDetailScreen(place: place),
+                                  1.0,
+                                  0.0,
+                                  500));
                             },
                           ),
                         ),
@@ -154,13 +152,8 @@ class _SearchScreenState extends State<SearchScreen> {
                               ),
                             ),
                             onTap: () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) =>
-                                      FoodDetailScreen(food: food),
-                                ),
-                              );
+                              Navigator.of(context).push(_createSlideTransition(
+                                  FoodDetailScreen(food: food), 1.0, 0.0, 500));
                             },
                           ),
                         ),
@@ -202,5 +195,25 @@ class _SearchScreenState extends State<SearchScreen> {
     setState(() {
       foods = foodSuggestions;
     });
+  }
+
+  Route _createSlideTransition(Widget pageTarget, dx, dy, int milliseconds) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => pageTarget,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(dx, dy);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+      transitionDuration: Duration(milliseconds: milliseconds),
+    );
   }
 }

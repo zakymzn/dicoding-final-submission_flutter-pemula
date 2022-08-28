@@ -50,10 +50,8 @@ class PlaceListScreen extends StatelessWidget {
                     color: Colors.transparent,
                     child: InkWell(
                       onTap: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) {
-                          return PlaceDetailScreen(place: place);
-                        }));
+                        Navigator.of(context).push(_createSlideTransition(
+                            PlaceDetailScreen(place: place), 1.0, 0.0, 500));
                       },
                       child: Padding(
                         padding: const EdgeInsets.all(20),
@@ -81,6 +79,26 @@ class PlaceListScreen extends StatelessWidget {
           },
         ),
       ),
+    );
+  }
+
+  Route _createSlideTransition(Widget pageTarget, dx, dy, int milliseconds) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => pageTarget,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(dx, dy);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+      transitionDuration: Duration(milliseconds: milliseconds),
     );
   }
 }

@@ -50,16 +50,19 @@ class ProfileScreen extends StatelessWidget {
               ),
               child: Column(
                 children: [
-                  Container(
-                    height: 100,
-                    width: 100,
-                    margin: EdgeInsets.all(10),
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage("images/profile.jpg"),
-                        fit: BoxFit.cover,
+                  Hero(
+                    tag: "profile",
+                    child: Container(
+                      height: 100,
+                      width: 100,
+                      margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage("images/profile.jpg"),
+                          fit: BoxFit.cover,
+                        ),
+                        shape: BoxShape.circle,
                       ),
-                      shape: BoxShape.circle,
                     ),
                   ),
                   Padding(

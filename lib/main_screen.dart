@@ -35,11 +35,8 @@ class MainScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return SearchScreen();
-                },
-              ));
+              Navigator.of(context)
+                  .push(_createSlideTransition(SearchScreen(), 1.0, 0.0, 500));
             },
             icon: Icon(
               Icons.search,
@@ -48,17 +45,17 @@ class MainScreen extends StatelessWidget {
           ),
           IconButton(
             onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return ProfileScreen();
-                },
-              ));
+              Navigator.of(context)
+                  .push(_createSlideTransition(ProfileScreen(), 1.0, 0.0, 500));
             },
             iconSize: 40,
             splashColor: Colors.white,
-            icon: CircleAvatar(
-              backgroundColor: Colors.transparent,
-              backgroundImage: AssetImage("images/profile.jpg"),
+            icon: Hero(
+              tag: "profile",
+              child: CircleAvatar(
+                backgroundColor: Colors.transparent,
+                backgroundImage: AssetImage("images/profile.jpg"),
+              ),
             ),
           ),
         ],
@@ -97,10 +94,8 @@ class MainScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return HistoryScreen();
-                          }));
+                          Navigator.of(context).push(_createSlideTransition(
+                              HistoryScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff189AB4),
@@ -136,10 +131,8 @@ class MainScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: ((context) {
-                            return PlaceListScreen();
-                          })));
+                          Navigator.of(context).push(_createSlideTransition(
+                              PlaceListScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff189AB4),
@@ -175,10 +168,8 @@ class MainScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(20),
                       child: ElevatedButton(
                         onPressed: () {
-                          Navigator.push(context,
-                              MaterialPageRoute(builder: (context) {
-                            return FoodListScreen();
-                          }));
+                          Navigator.of(context).push(_createSlideTransition(
+                              FoodListScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
                           primary: Color(0xff189AB4),
@@ -249,11 +240,11 @@ class MainScreen extends StatelessWidget {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return PlaceDetailScreen(place: place);
-                                },
-                              ));
+                              Navigator.of(context).push(_createSlideTransition(
+                                  PlaceDetailScreen(place: place),
+                                  1.0,
+                                  0.0,
+                                  500));
                             },
                             child: Padding(
                               padding: EdgeInsets.all(20),
@@ -326,11 +317,8 @@ class MainScreen extends StatelessWidget {
                           color: Colors.transparent,
                           child: InkWell(
                             onTap: () {
-                              Navigator.push(context, MaterialPageRoute(
-                                builder: (context) {
-                                  return FoodDetailScreen(food: food);
-                                },
-                              ));
+                              Navigator.of(context).push(_createSlideTransition(
+                                  FoodDetailScreen(food: food), 1.0, 0.0, 500));
                             },
                             child: Padding(
                               padding: EdgeInsets.all(20),
@@ -370,6 +358,26 @@ class MainScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  Route _createSlideTransition(Widget pageTarget, dx, dy, int milliseconds) {
+    return PageRouteBuilder(
+      pageBuilder: (context, animation, secondaryAnimation) => pageTarget,
+      transitionsBuilder: (context, animation, secondaryAnimation, child) {
+        var begin = Offset(dx, dy);
+        const end = Offset.zero;
+        const curve = Curves.ease;
+
+        var tween =
+            Tween(begin: begin, end: end).chain(CurveTween(curve: curve));
+
+        return SlideTransition(
+          position: animation.drive(tween),
+          child: child,
+        );
+      },
+      transitionDuration: Duration(milliseconds: milliseconds),
     );
   }
 }
