@@ -16,13 +16,22 @@ class MainScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Explore Kebumen",
-            style: TextStyle(
-              color: Color(0xff05445E),
-              fontSize: 20,
-              fontWeight: FontWeight.bold,
-              fontFamily: "Roboto",
-            )),
+        leading: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Image.asset(
+            "images/logo.png",
+            color: Color(0xff05445E),
+          ),
+        ),
+        title: Text(
+          "Explore Kebumen",
+          style: TextStyle(
+            color: Color(0xff05445E),
+            fontSize: 20,
+            fontWeight: FontWeight.bold,
+            fontFamily: "Roboto",
+          ),
+        ),
         actions: [
           IconButton(
             onPressed: () {

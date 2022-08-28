@@ -18,7 +18,7 @@ class ProfileScreen extends StatelessWidget {
           },
           icon: Icon(
             Icons.arrow_back,
-            color: Colors.black,
+            color: Color(0xff05445E),
           ),
         ),
         title: Text(
@@ -27,7 +27,7 @@ class ProfileScreen extends StatelessWidget {
             fontSize: 20,
             fontWeight: FontWeight.bold,
             fontFamily: "Roboto",
-            color: Colors.black,
+            color: Color(0xff05445E),
           ),
         ),
       ),
