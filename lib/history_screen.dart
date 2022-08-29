@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/data/general.dart';
 
-// void main() => runApp(const HistoryScreen());
-
 class HistoryScreen extends StatelessWidget {
   const HistoryScreen({Key? key}) : super(key: key);
 
@@ -35,12 +33,15 @@ class HistoryScreen extends StatelessWidget {
           padding: EdgeInsets.all(20),
           children: [
             Container(
+              width: MediaQuery.of(context).size.width,
+              height: MediaQuery.of(context).size.width,
               margin: EdgeInsets.only(bottom: 20),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(20),
-                child: Image(
+              decoration: BoxDecoration(
+                image: DecorationImage(
                   image: AssetImage("images/tugulawet.jpg"),
+                  fit: BoxFit.cover,
                 ),
+                borderRadius: BorderRadius.circular(20),
               ),
             ),
             Text(
