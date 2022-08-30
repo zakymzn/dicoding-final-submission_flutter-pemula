@@ -1,3 +1,4 @@
+import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:final_submission_flutter_pemula/search_screen.dart';
 import 'package:final_submission_flutter_pemula/profile_screen.dart';
@@ -371,6 +372,8 @@ class MainScreen extends StatelessWidget {
   }
 
   Widget webDesktopScreen(BuildContext context) {
+    ScrollController scrollController = ScrollController();
+
     return Container(
       color: Color(0xffD4F1F4),
       child: ListView(
@@ -531,67 +534,71 @@ class MainScreen extends StatelessWidget {
           ),
           SizedBox(
             height: 300,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                final TourismPlace place = tourismPlaceList[index];
-                return Card(
-                  elevation: 0,
-                  color: Colors.transparent,
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 600,
-                      // height: 300,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(place.mainImage),
+            child: ScrollConfiguration(
+              behavior: MyCustomScrollBehavior(),
+              child: ListView.builder(
+                controller: scrollController,
+                scrollDirection: Axis.horizontal,
+                padding: EdgeInsets.only(left: 20),
+                itemCount: 3,
+                itemBuilder: (BuildContext context, int index) {
+                  final TourismPlace place = tourismPlaceList[index];
+                  return Card(
+                    elevation: 0,
+                    color: Colors.transparent,
+                    margin: EdgeInsets.only(right: 20),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        width: 600,
+                        // height: 300,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(place.mainImage),
+                          ),
                         ),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(_createSlideTransition(
-                                PlaceDetailScreen(place: place),
-                                1.0,
-                                0.0,
-                                500));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  place.name,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Roboto",
-                                      shadows: [
-                                        Shadow(
-                                          color: Colors.black,
-                                          blurRadius: 10.0,
-                                          offset: Offset(0, 3),
-                                        ),
-                                      ]),
-                                ),
-                              ],
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(_createSlideTransition(
+                                  PlaceDetailScreen(place: place),
+                                  1.0,
+                                  0.0,
+                                  500));
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.all(20),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    place.name,
+                                    style: TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Roboto",
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            blurRadius: 10.0,
+                                            offset: Offset(0, 3),
+                                          ),
+                                        ]),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
           Container(
@@ -695,4 +702,13 @@ class MainScreen extends StatelessWidget {
       transitionDuration: Duration(milliseconds: milliseconds),
     );
   }
+}
+
+class MyCustomScrollBehavior extends MaterialScrollBehavior {
+  @override
+  Set<PointerDeviceKind> get dragDevices => {
+        PointerDeviceKind.touch,
+        PointerDeviceKind.mouse,
+        PointerDeviceKind.trackpad,
+      };
 }
