@@ -12,11 +12,11 @@ class HistoryScreen extends StatelessWidget {
               onPressed: () {
                 Navigator.pop(context);
               },
-              icon: Icon(
+              icon: const Icon(
                 Icons.arrow_back,
                 color: Colors.white,
               )),
-          title: Text(
+          title: const Text(
             "Sejarah",
             style: TextStyle(
               fontFamily: "Roboto",
@@ -24,7 +24,7 @@ class HistoryScreen extends StatelessWidget {
               fontWeight: FontWeight.bold,
             ),
           ),
-          backgroundColor: Color(0xff189AB4),
+          backgroundColor: const Color(0xff189AB4),
           elevation: 2,
         ),
         body: LayoutBuilder(
@@ -40,16 +40,16 @@ class HistoryScreen extends StatelessWidget {
 
   Widget mobileHistoryScreen(BuildContext context) {
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: ListView(
-        padding: EdgeInsets.all(20),
+        padding: const EdgeInsets.all(20),
         children: [
           Container(
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.width,
-            margin: EdgeInsets.only(bottom: 20),
+            margin: const EdgeInsets.only(bottom: 20),
             decoration: BoxDecoration(
-              image: DecorationImage(
+              image: const DecorationImage(
                 image: AssetImage("images/tugulawet.jpg"),
                 fit: BoxFit.cover,
               ),
@@ -59,7 +59,7 @@ class HistoryScreen extends StatelessWidget {
           Text(
             history,
             textAlign: TextAlign.justify,
-            style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
+            style: const TextStyle(fontSize: 16, fontFamily: "Roboto"),
           ),
         ],
       ),
@@ -70,42 +70,41 @@ class HistoryScreen extends StatelessWidget {
     ScrollController scrollController = ScrollController();
 
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: Center(
-        child: Container(
+        child: SizedBox(
           width: MediaQuery.of(context).size.width / 1.25,
           height: MediaQuery.of(context).size.height / 1.25,
           child: Row(children: [
             Expanded(
-              child: Container(
-                child: ListView(
-                  controller: scrollController,
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                        child: Image(
-                          image: AssetImage("images/tugulawet.jpg"),
-                          fit: BoxFit.cover,
-                        ),
+              child: ListView(
+                controller: scrollController,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(10),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: const Image(
+                        image: AssetImage("images/tugulawet.jpg"),
+                        fit: BoxFit.cover,
                       ),
-                    )
-                  ],
-                ),
+                    ),
+                  )
+                ],
               ),
             ),
             Expanded(
                 child: Container(
-              padding: EdgeInsets.all(10),
+              padding: const EdgeInsets.all(10),
               child: ListView(
                 children: [
                   Padding(
-                    padding: EdgeInsets.only(bottom: 20),
+                    padding: const EdgeInsets.only(bottom: 20),
                     child: Text(
                       history,
                       textAlign: TextAlign.justify,
-                      style: TextStyle(fontSize: 16, fontFamily: "Roboto"),
+                      style:
+                          const TextStyle(fontSize: 16, fontFamily: "Roboto"),
                     ),
                   )
                 ],

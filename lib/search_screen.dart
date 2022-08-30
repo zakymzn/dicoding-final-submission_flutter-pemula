@@ -25,11 +25,11 @@ class _SearchScreenState extends State<SearchScreen> {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
         title: TextField(
           controller: textEditingController,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: "Cari tempat atau makanan di sini",
             hintStyle: TextStyle(
               color: Colors.white,
@@ -37,14 +37,14 @@ class _SearchScreenState extends State<SearchScreen> {
             enabledBorder: InputBorder.none,
             focusedBorder: InputBorder.none,
           ),
-          style: TextStyle(
+          style: const TextStyle(
             color: Colors.white,
           ),
           cursorColor: Colors.white,
           cursorWidth: 1,
           onChanged: search,
         ),
-        backgroundColor: Color(0xff189AB4),
+        backgroundColor: const Color(0xff189AB4),
         elevation: 2,
       ),
       body: LayoutBuilder(
@@ -61,11 +61,11 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget mobileSearchScreen(BuildContext context) {
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: Column(
         children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
+          const Padding(
+            padding: EdgeInsets.all(10),
             child: Text(
               "Tempat Wisata",
               style: TextStyle(
@@ -78,7 +78,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               itemCount: places.length,
               itemBuilder: (context, index) {
                 final place = places[index];
@@ -88,8 +88,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
-                      color: Color(0xff189AB4),
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      color: const Color(0xff189AB4),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
@@ -102,7 +102,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         title: Text(
                           place.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               fontFamily: "Roboto",
                               color: Colors.white),
@@ -118,8 +118,8 @@ class _SearchScreenState extends State<SearchScreen> {
               },
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(10),
+          const Padding(
+            padding: EdgeInsets.all(10),
             child: Text(
               "Makanan Khas",
               style: TextStyle(
@@ -132,7 +132,7 @@ class _SearchScreenState extends State<SearchScreen> {
           ),
           Expanded(
             child: ListView.builder(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               itemCount: foods.length,
               itemBuilder: (context, index) {
                 final food = foods[index];
@@ -142,8 +142,8 @@ class _SearchScreenState extends State<SearchScreen> {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
-                      color: Color(0xff189AB4),
-                      padding: EdgeInsets.symmetric(vertical: 10),
+                      color: const Color(0xff189AB4),
+                      padding: const EdgeInsets.symmetric(vertical: 10),
                       child: ListTile(
                         leading: ClipRRect(
                           borderRadius: BorderRadius.circular(10),
@@ -156,7 +156,7 @@ class _SearchScreenState extends State<SearchScreen> {
                         ),
                         title: Text(
                           food.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             fontFamily: "Roboto",
                             color: Colors.white,
@@ -180,14 +180,14 @@ class _SearchScreenState extends State<SearchScreen> {
 
   Widget webDesktopSearchScreen(BuildContext context) {
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: Padding(
         padding: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width.toDouble() / 5),
         child: Column(
           children: [
-            Padding(
-              padding: const EdgeInsets.all(10),
+            const Padding(
+              padding: EdgeInsets.all(10),
               child: Text(
                 "Tempat Wisata",
                 style: TextStyle(
@@ -201,7 +201,7 @@ class _SearchScreenState extends State<SearchScreen> {
             Expanded(
               child: ListView.builder(
                 controller: _scrollController,
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemCount: places.length,
                 itemBuilder: (context, index) {
                   final place = places[index];
@@ -211,8 +211,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        color: Color(0xff189AB4),
-                        padding: EdgeInsets.symmetric(vertical: 10),
+                        color: const Color(0xff189AB4),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ListTile(
                           leading: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -225,7 +225,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                           title: Text(
                             place.name,
-                            style: TextStyle(
+                            style: const TextStyle(
                                 fontSize: 16,
                                 fontFamily: "Roboto",
                                 color: Colors.white),
@@ -244,8 +244,8 @@ class _SearchScreenState extends State<SearchScreen> {
                 },
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10),
+            const Padding(
+              padding: EdgeInsets.all(10),
               child: Text(
                 "Makanan Khas",
                 style: TextStyle(
@@ -258,7 +258,7 @@ class _SearchScreenState extends State<SearchScreen> {
             ),
             Expanded(
               child: ListView.builder(
-                padding: EdgeInsets.symmetric(horizontal: 10),
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 itemCount: foods.length,
                 itemBuilder: (context, index) {
                   final food = foods[index];
@@ -268,8 +268,8 @@ class _SearchScreenState extends State<SearchScreen> {
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
-                        color: Color(0xff189AB4),
-                        padding: EdgeInsets.symmetric(vertical: 10),
+                        color: const Color(0xff189AB4),
+                        padding: const EdgeInsets.symmetric(vertical: 10),
                         child: ListTile(
                           leading: ClipRRect(
                             borderRadius: BorderRadius.circular(10),
@@ -282,7 +282,7 @@ class _SearchScreenState extends State<SearchScreen> {
                           ),
                           title: Text(
                             food.name,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontFamily: "Roboto",
                               color: Colors.white,

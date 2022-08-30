@@ -15,17 +15,17 @@ class PlaceDetailScreen extends StatelessWidget {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(Icons.arrow_back)),
+            icon: const Icon(Icons.arrow_back)),
         title: Text(
           place.name,
-          style: TextStyle(
+          style: const TextStyle(
             fontSize: 20,
             fontWeight: FontWeight.bold,
             fontFamily: "Roboto",
           ),
         ),
-        actions: [ThumbButton()],
-        backgroundColor: Color(0xff189AB4),
+        actions: const [ThumbButton()],
+        backgroundColor: const Color(0xff189AB4),
         elevation: 2,
       ),
       body: LayoutBuilder(
@@ -42,13 +42,13 @@ class PlaceDetailScreen extends StatelessWidget {
 
   Widget mobilePlaceDetailScreen(BuildContext context) {
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: ListView(
         children: [
           Container(
             height: 200,
             width: 200,
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(20),
               image: DecorationImage(
@@ -61,12 +61,12 @@ class PlaceDetailScreen extends StatelessWidget {
             height: 100,
             child: ListView(
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20),
               children: place.imageList.map((path) {
                 return Container(
                   height: 100,
                   width: 150,
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10),
                     image: DecorationImage(
@@ -82,7 +82,7 @@ class PlaceDetailScreen extends StatelessWidget {
             padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
             child: Text(
               "Lokasi : ${place.location}",
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontWeight: FontWeight.bold,
                 fontFamily: "Roboto",
@@ -91,11 +91,11 @@ class PlaceDetailScreen extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: Text(
               place.description,
               textAlign: TextAlign.justify,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 fontFamily: "Roboto",
               ),
@@ -110,52 +110,50 @@ class PlaceDetailScreen extends StatelessWidget {
     ScrollController scrollController = ScrollController();
 
     return Container(
-        color: Color(0xffD4F1F4),
+        color: const Color(0xffD4F1F4),
         child: Center(
-          child: Container(
+          child: SizedBox(
             width: MediaQuery.of(context).size.width / 1.25,
             height: MediaQuery.of(context).size.height / 1.25,
             child: Row(
               children: [
                 Expanded(
-                  child: Container(
-                    child: ListView(
-                      controller: scrollController,
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(20),
-                            child: Image(
-                                image: AssetImage(place.mainImage),
-                                fit: BoxFit.cover),
+                  child: ListView(
+                    controller: scrollController,
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.all(10),
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(20),
+                          child: Image(
+                              image: AssetImage(place.mainImage),
+                              fit: BoxFit.cover),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 100,
+                        child: ScrollConfiguration(
+                          behavior: MyCustomScrollBehavior(),
+                          child: ListView(
+                            scrollDirection: Axis.horizontal,
+                            padding: const EdgeInsets.only(left: 10),
+                            children: place.imageList.map((path) {
+                              return Padding(
+                                padding: const EdgeInsets.only(right: 10),
+                                child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(10),
+                                    child: Image(image: AssetImage(path))),
+                              );
+                            }).toList(),
                           ),
                         ),
-                        SizedBox(
-                          height: 100,
-                          child: ScrollConfiguration(
-                            behavior: MyCustomScrollBehavior(),
-                            child: ListView(
-                              scrollDirection: Axis.horizontal,
-                              padding: EdgeInsets.only(left: 10),
-                              children: place.imageList.map((path) {
-                                return Padding(
-                                  padding: const EdgeInsets.only(right: 10),
-                                  child: ClipRRect(
-                                      borderRadius: BorderRadius.circular(10),
-                                      child: Image(image: AssetImage(path))),
-                                );
-                              }).toList(),
-                            ),
-                          ),
-                        )
-                      ],
-                    ),
+                      )
+                    ],
                   ),
                 ),
                 Expanded(
                   child: Container(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: ListView(
                       children: [
                         Padding(
@@ -163,7 +161,7 @@ class PlaceDetailScreen extends StatelessWidget {
                           child: Text(
                             "Lokasi : ${place.location}",
                             textAlign: TextAlign.justify,
-                            style: TextStyle(
+                            style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Roboto",
@@ -174,7 +172,7 @@ class PlaceDetailScreen extends StatelessWidget {
                         Text(
                           place.description,
                           textAlign: TextAlign.justify,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 16,
                             fontFamily: "Roboto",
                           ),

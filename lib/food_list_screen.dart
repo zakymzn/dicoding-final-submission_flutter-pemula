@@ -10,11 +10,11 @@ class FoodListScreen extends StatelessWidget {
     final widthSize = MediaQuery.of(context).size.width;
 
     if (widthSize <= 600.0) {
-      return MobileFoodListScreen();
+      return const MobileFoodListScreen();
     } else if (widthSize <= 1000.0) {
-      return GridFoodListScreen(crossAxisCount: 3);
+      return const GridFoodListScreen(crossAxisCount: 3);
     } else {
-      return GridFoodListScreen(crossAxisCount: 5);
+      return const GridFoodListScreen(crossAxisCount: 5);
     }
   }
 }
@@ -30,9 +30,9 @@ class MobileFoodListScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
-        title: Text(
+        title: const Text(
           "Makanan Khas",
           style: TextStyle(
             fontSize: 20,
@@ -40,13 +40,13 @@ class MobileFoodListScreen extends StatelessWidget {
             fontFamily: "Roboto",
           ),
         ),
-        backgroundColor: Color(0xff189AB4),
+        backgroundColor: const Color(0xff189AB4),
         elevation: 2,
       ),
       body: Container(
-        color: Color(0xffD4F1F4),
+        color: const Color(0xffD4F1F4),
         child: ListView.builder(
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           itemCount: specialFoodList.length,
           itemBuilder: (BuildContext context, int index) {
             final SpecialFood food = specialFoodList[index];
@@ -73,7 +73,7 @@ class MobileFoodListScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(20),
                         child: Text(
                           food.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Roboto",
@@ -120,6 +120,7 @@ class MobileFoodListScreen extends StatelessWidget {
 }
 
 class GridFoodListScreen extends StatelessWidget {
+  // ignore: prefer_typing_uninitialized_variables
   final crossAxisCount;
 
   const GridFoodListScreen({Key? key, required this.crossAxisCount})
@@ -133,9 +134,9 @@ class GridFoodListScreen extends StatelessWidget {
           onPressed: () {
             Navigator.pop(context);
           },
-          icon: Icon(Icons.arrow_back),
+          icon: const Icon(Icons.arrow_back),
         ),
-        title: Text(
+        title: const Text(
           "Makanan Khas",
           style: TextStyle(
             fontSize: 20,
@@ -143,15 +144,15 @@ class GridFoodListScreen extends StatelessWidget {
             fontFamily: "Roboto",
           ),
         ),
-        backgroundColor: Color(0xff189AB4),
+        backgroundColor: const Color(0xff189AB4),
         elevation: 2,
       ),
       body: Container(
-        color: Color(0xffD4F1F4),
+        color: const Color(0xffD4F1F4),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: crossAxisCount),
-          padding: EdgeInsets.all(10),
+          padding: const EdgeInsets.all(10),
           itemCount: specialFoodList.length,
           itemBuilder: (BuildContext context, int index) {
             final SpecialFood food = specialFoodList[index];
@@ -178,7 +179,7 @@ class GridFoodListScreen extends StatelessWidget {
                         padding: const EdgeInsets.all(20),
                         child: Text(
                           food.name,
-                          style: TextStyle(
+                          style: const TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.bold,
                               fontFamily: "Roboto",

@@ -14,6 +14,7 @@ class TourismPlace {
 }
 
 var tourismPlaceList = [
+  // === Recommended Place ===
   // 1. Benteng Van der Wijck
   TourismPlace(
       name: "Benteng Van Der Wijck",
@@ -58,6 +59,7 @@ var tourismPlaceList = [
         "images/place/Pantai Menganti/3.jpg",
         "images/place/Pantai Menganti/4.jpg",
       ]),
+  // =========================
 
   // 4. Waduk Sempor
   TourismPlace(

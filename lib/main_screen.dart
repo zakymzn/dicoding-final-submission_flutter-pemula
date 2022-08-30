@@ -21,10 +21,10 @@ class MainScreen extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Image.asset(
             "images/logo.png",
-            color: Color(0xff05445E),
+            color: const Color(0xff05445E),
           ),
         ),
-        title: Text(
+        title: const Text(
           "Explore Kebumen",
           overflow: TextOverflow.fade,
           style: TextStyle(
@@ -37,22 +37,22 @@ class MainScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(_createSlideTransition(SearchScreen(), 1.0, 0.0, 500));
+              Navigator.of(context).push(
+                  _createSlideTransition(const SearchScreen(), 1.0, 0.0, 500));
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.search,
               color: Color(0xff05445E),
             ),
           ),
           IconButton(
             onPressed: () {
-              Navigator.of(context)
-                  .push(_createSlideTransition(ProfileScreen(), 1.0, 0.0, 500));
+              Navigator.of(context).push(
+                  _createSlideTransition(const ProfileScreen(), 1.0, 0.0, 500));
             },
             iconSize: 40,
             splashColor: Colors.white,
-            icon: Hero(
+            icon: const Hero(
               tag: "profile",
               child: CircleAvatar(
                 backgroundColor: Colors.transparent,
@@ -61,7 +61,7 @@ class MainScreen extends StatelessWidget {
             ),
           ),
         ],
-        backgroundColor: Color(0xff75E6DA),
+        backgroundColor: const Color(0xff75E6DA),
         elevation: 2,
       ),
       body: LayoutBuilder(
@@ -78,11 +78,11 @@ class MainScreen extends StatelessWidget {
 
   Widget mobileScreen(BuildContext context) {
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: const Text(
               "Let's explore Kebumen!",
               style: TextStyle(
@@ -106,16 +106,16 @@ class MainScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(_createSlideTransition(
-                            HistoryScreen(), 1.0, 0.0, 500));
+                            const HistoryScreen(), 1.0, 0.0, 500));
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff189AB4),
+                        primary: const Color(0xff189AB4),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.menu_book,
                               size: 40,
@@ -143,16 +143,16 @@ class MainScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(_createSlideTransition(
-                            PlaceListScreen(), 1.0, 0.0, 500));
+                            const PlaceListScreen(), 1.0, 0.0, 500));
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff189AB4),
+                        primary: const Color(0xff189AB4),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.place,
                               size: 40,
@@ -180,16 +180,16 @@ class MainScreen extends StatelessWidget {
                     child: ElevatedButton(
                       onPressed: () {
                         Navigator.of(context).push(_createSlideTransition(
-                            FoodListScreen(), 1.0, 0.0, 500));
+                            const FoodListScreen(), 1.0, 0.0, 500));
                       },
                       style: ElevatedButton.styleFrom(
-                        primary: Color(0xff189AB4),
+                        primary: const Color(0xff189AB4),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
+                          children: const [
                             Icon(
                               Icons.food_bank,
                               size: 40,
@@ -214,7 +214,7 @@ class MainScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20),
-            child: Text(
+            child: const Text(
               "Rekomendasi Tempat Wisata",
               style: TextStyle(
                 fontFamily: "Roboto",
@@ -228,14 +228,14 @@ class MainScreen extends StatelessWidget {
             height: 300,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20),
               itemCount: 3,
               itemBuilder: (BuildContext context, int index) {
                 final TourismPlace place = tourismPlaceList[index];
                 return Card(
                   elevation: 0,
                   color: Colors.transparent,
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
@@ -258,14 +258,14 @@ class MainScreen extends StatelessWidget {
                                 500));
                           },
                           child: Padding(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   place.name,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -291,7 +291,7 @@ class MainScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20),
-            child: Text(
+            child: const Text(
               "Rekomendasi Makanan Khas",
               style: TextStyle(
                 fontFamily: "Roboto",
@@ -305,14 +305,14 @@ class MainScreen extends StatelessWidget {
             height: 300,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
+              padding: const EdgeInsets.only(left: 20),
               itemCount: 3,
               itemBuilder: (BuildContext context, int index) {
                 final SpecialFood food = specialFoodList[index];
                 return Card(
                   elevation: 0,
                   color: Colors.transparent,
-                  margin: EdgeInsets.only(right: 20),
+                  margin: const EdgeInsets.only(right: 20),
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(20),
                     child: Container(
@@ -332,14 +332,14 @@ class MainScreen extends StatelessWidget {
                                 FoodDetailScreen(food: food), 1.0, 0.0, 500));
                           },
                           child: Padding(
-                            padding: EdgeInsets.all(20),
+                            padding: const EdgeInsets.all(20),
                             child: Column(
                               mainAxisAlignment: MainAxisAlignment.end,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
                                   food.name,
-                                  style: TextStyle(
+                                  style: const TextStyle(
                                       color: Colors.white,
                                       fontSize: 16,
                                       fontWeight: FontWeight.bold,
@@ -375,11 +375,11 @@ class MainScreen extends StatelessWidget {
     ScrollController scrollController = ScrollController();
 
     return Container(
-      color: Color(0xffD4F1F4),
+      color: const Color(0xffD4F1F4),
       child: ListView(
         children: [
           Container(
-            margin: EdgeInsets.all(20),
+            margin: const EdgeInsets.all(20),
             child: const Text(
               "Let's explore Kebumen!",
               textAlign: TextAlign.center,
@@ -406,16 +406,16 @@ class MainScreen extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(_createSlideTransition(
-                              HistoryScreen(), 1.0, 0.0, 500));
+                              const HistoryScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xff189AB4),
+                          primary: const Color(0xff189AB4),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.menu_book,
                                 size: 40,
@@ -446,16 +446,16 @@ class MainScreen extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(_createSlideTransition(
-                              PlaceListScreen(), 1.0, 0.0, 500));
+                              const PlaceListScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xff189AB4),
+                          primary: const Color(0xff189AB4),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.place,
                                 size: 40,
@@ -486,16 +486,16 @@ class MainScreen extends StatelessWidget {
                       child: ElevatedButton(
                         onPressed: () {
                           Navigator.of(context).push(_createSlideTransition(
-                              FoodListScreen(), 1.0, 0.0, 500));
+                              const FoodListScreen(), 1.0, 0.0, 500));
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Color(0xff189AB4),
+                          primary: const Color(0xff189AB4),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
                           child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                            children: [
+                            children: const [
                               Icon(
                                 Icons.food_bank,
                                 size: 40,
@@ -521,7 +521,7 @@ class MainScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20),
-            child: Text(
+            child: const Text(
               "Rekomendasi Tempat Wisata",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -539,19 +539,18 @@ class MainScreen extends StatelessWidget {
               child: ListView.builder(
                 controller: scrollController,
                 scrollDirection: Axis.horizontal,
-                padding: EdgeInsets.only(left: 20),
+                padding: const EdgeInsets.only(left: 20),
                 itemCount: 3,
                 itemBuilder: (BuildContext context, int index) {
                   final TourismPlace place = tourismPlaceList[index];
                   return Card(
                     elevation: 0,
                     color: Colors.transparent,
-                    margin: EdgeInsets.only(right: 20),
+                    margin: const EdgeInsets.only(right: 20),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(20),
                       child: Container(
                         width: 600,
-                        // height: 300,
                         decoration: BoxDecoration(
                           image: DecorationImage(
                             fit: BoxFit.cover,
@@ -569,14 +568,14 @@ class MainScreen extends StatelessWidget {
                                   500));
                             },
                             child: Padding(
-                              padding: EdgeInsets.all(20),
+                              padding: const EdgeInsets.all(20),
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     place.name,
-                                    style: TextStyle(
+                                    style: const TextStyle(
                                         color: Colors.white,
                                         fontSize: 16,
                                         fontWeight: FontWeight.bold,
@@ -603,7 +602,7 @@ class MainScreen extends StatelessWidget {
           ),
           Container(
             margin: const EdgeInsets.all(20),
-            child: Text(
+            child: const Text(
               "Rekomendasi Makanan Khas",
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -616,63 +615,66 @@ class MainScreen extends StatelessWidget {
           ),
           SizedBox(
             height: 300,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              padding: EdgeInsets.only(left: 20),
-              itemCount: 3,
-              itemBuilder: (BuildContext context, int index) {
-                final SpecialFood food = specialFoodList[index];
-                return Card(
-                  elevation: 0,
-                  color: Colors.transparent,
-                  margin: EdgeInsets.only(right: 20),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(20),
-                    child: Container(
-                      width: 600,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.cover,
-                          image: AssetImage(food.image),
+            child: ScrollConfiguration(
+              behavior: MyCustomScrollBehavior(),
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.only(left: 20),
+                itemCount: 3,
+                itemBuilder: (BuildContext context, int index) {
+                  final SpecialFood food = specialFoodList[index];
+                  return Card(
+                    elevation: 0,
+                    color: Colors.transparent,
+                    margin: const EdgeInsets.only(right: 20),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(20),
+                      child: Container(
+                        width: 600,
+                        decoration: BoxDecoration(
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: AssetImage(food.image),
+                          ),
                         ),
-                      ),
-                      child: Material(
-                        color: Colors.transparent,
-                        child: InkWell(
-                          onTap: () {
-                            Navigator.of(context).push(_createSlideTransition(
-                                FoodDetailScreen(food: food), 1.0, 0.0, 500));
-                          },
-                          child: Padding(
-                            padding: EdgeInsets.all(20),
-                            child: Column(
-                              mainAxisAlignment: MainAxisAlignment.end,
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  food.name,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 16,
-                                      fontWeight: FontWeight.bold,
-                                      fontFamily: "Roboto",
-                                      shadows: [
-                                        Shadow(
-                                          color: Colors.black,
-                                          blurRadius: 10.0,
-                                          offset: Offset(0, 3),
-                                        ),
-                                      ]),
-                                ),
-                              ],
+                        child: Material(
+                          color: Colors.transparent,
+                          child: InkWell(
+                            onTap: () {
+                              Navigator.of(context).push(_createSlideTransition(
+                                  FoodDetailScreen(food: food), 1.0, 0.0, 500));
+                            },
+                            child: Padding(
+                              padding: const EdgeInsets.all(20),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.end,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    food.name,
+                                    style: const TextStyle(
+                                        color: Colors.white,
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.bold,
+                                        fontFamily: "Roboto",
+                                        shadows: [
+                                          Shadow(
+                                            color: Colors.black,
+                                            blurRadius: 10.0,
+                                            offset: Offset(0, 3),
+                                          ),
+                                        ]),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+              ),
             ),
           ),
           Container(
